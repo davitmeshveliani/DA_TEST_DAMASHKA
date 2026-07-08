@@ -57,6 +57,5 @@ def test_check_text_on_page(driver):
     expected_text = "Запишитесь на бесплатную консультацию"
 
     actual_text = text_container.get_attribute("innerText")
-
     assert expected_text in actual_text, {actual_text}
 
