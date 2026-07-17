@@ -45,20 +45,16 @@ def test_drag_and_drop_task(driver):
 
     driver.switch_to.frame(driver.find_element(By.CSS_SELECTOR, ".demo-frame"))
 
-    source = driver.find_element(By.XPATH, '//*[@id="gallery"]/li[1]/img')
-    target = driver.find_element(By.XPATH, '//*[@id="trash"]')
+
+    source = driver.find_element(By.CSS_SELECTOR, "#gallery li:first-child")
+    target = driver.find_element(By.ID, "trash")
 
     actions = ActionChains(driver)
     actions.drag_and_drop(source, target).perform()
     sleep(2)
 
     trash_items = driver.find_elements(By.CSS_SELECTOR, "#trash li")
-    gallery_items = driver.find_elements(By.CSS_SELECTOR, "ul#gallery li")
+    gallery_items = driver.find_elements(By.CSS_SELECTOR, "#gallery li")
 
     assert len(trash_items) == 1
-    sleep(2)
     assert len(gallery_items) == 3
-    sleep(2)
-
-
-
