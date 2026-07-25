@@ -16,8 +16,6 @@ class CartPage:
         time.sleep(2)
         checkout_btn = self.get_checkout_button()
 
-        # 2. სელენიუმს ვთხოვთ მიასქროლოს ღილაკამდე (თუ ეკრანს მიღმაა)
         self.driver.execute_script("arguments[0].scrollIntoView(true);", checkout_btn)
 
-        # 3. ვუკეთებთ კლიკს
         checkout_btn.click()
