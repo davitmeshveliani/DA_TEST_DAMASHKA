@@ -1,4 +1,3 @@
-import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,7 +12,6 @@ class CartPage:
         return self.wait.until(EC.element_to_be_clickable((By.ID, "checkout")))
 
     def proceed_to_checkout(self):
-        time.sleep(2)
         checkout_btn = self.get_checkout_button()
 
         self.driver.execute_script("arguments[0].scrollIntoView(true);", checkout_btn)
