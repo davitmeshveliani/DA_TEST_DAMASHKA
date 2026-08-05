@@ -46,16 +46,16 @@ def test_partial_update_booking(api, auth_token, sample_booking_data):
     booking_id = created_booking["bookingid"]
 
     update_data = {
-        "firstname": "James",
-        "lastname": "Smith"
+        "firstname": "anna",
+        "lastname": "korovina"
     }
 
     response = api.partial_update_booking(booking_id, update_data, auth_token)
 
     assert response.status_code == 200
     updated_json = response.json()
-    assert updated_json["firstname"] == "James"
-    assert updated_json["lastname"] == "Smith"
+    assert updated_json["firstname"] == "anna"
+    assert updated_json["lastname"] == "korovina"
     assert updated_json["totalprice"] == sample_booking_data["totalprice"]
 
 
