@@ -61,7 +61,7 @@ def test_partial_update_booking(api, auth_token, sample_booking_data):
 
 def test_negative_get_nonexistent_booking(api):
     """Негативный сценарий: попытка получить несуществующее бронирование"""
-    non_existent_id = 9999999
+    non_existent_id = -1
     response = api.get_booking(non_existent_id)
 
     assert response.status_code == 404
